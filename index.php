@@ -35,13 +35,14 @@
                         Zajistíme vám nejen montáž, ale také vyřízení dotací, aby byla vaše investice co nejvýhodnější.
                     </a>
                 </div>
-            </div>ntaktujte nás</h1>
-                <div 
+            </div>
         </section>
 
         <section id="kontakt" class="contact">
             <div class="container">
-                <h1>Koclass="form-wrapper">
+                <h1>Kontaktujte nás</h1>
+
+                <div class="form-wrapper">
                     <form action="" method="post" class="contact-form">
                         <div class="form-group">
                             <label for="name">Jméno a příjmení *</label>

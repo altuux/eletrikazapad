@@ -5,7 +5,7 @@ window.addEventListener("scroll", () => {
   let current = "";
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 110;
+    const sectionTop = section.offsetTop - 143;
     const sectionHeight = section.clientHeight;
 
     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
@@ -17,7 +17,6 @@ window.addEventListener("scroll", () => {
     link.classList.remove("active");
 
     const href = link.getAttribute("href").split("#")[1];
-
     if (href === current) {
       link.classList.add("active");
     }
