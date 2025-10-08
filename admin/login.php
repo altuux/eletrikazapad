@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Přihlášení</title>
+    <link rel="stylesheet" href="style-admin.css" class="css">
 </head>
 <body>
     <h2>Přihlášení do administrace</h2>

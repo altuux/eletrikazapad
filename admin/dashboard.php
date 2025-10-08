@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="style-admin.css" class="css">
 </head>
 <body>
     <h1>Vítej, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
