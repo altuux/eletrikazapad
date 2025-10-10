@@ -101,13 +101,13 @@ p[style*="color:red"] {
 .dashboard-box a {
     margin-top: 20px;
     display: inline-block;
-    color: #33e32f;
+    color: #df4141;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .dashboard-box a:hover {
-    color: #2ac428;
+    color: #e33939;
 }
 
 @media (max-width: 480px) {
