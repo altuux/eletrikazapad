@@ -100,7 +100,7 @@ header .container {
 
 /* Hero sekce */
 .hero {
-    background: url("https://picsum.photos/seed/picsum/") no-repeat center/cover;
+    background: url("") no-repeat center/cover;
     width: 100%;
     height: 100vh;
     display: flex; 
@@ -133,26 +133,143 @@ header .container {
     padding: 20px;
 }
 
-.upper {
-    justify-content: center;
-    text-align: center;
+/* Sekce o nás */
+.onas {
+    background-color: #EDEDED;
+    padding: 80px 20px;
 }
 
+.onas p {
+    max-width: 700px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 400;
+    padding: 10px 0;
+    position: relative;
+}
+
+.upper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Nadpis sekce */
 .upper h1 {
     font-size: 3rem;
     text-transform: uppercase;
-
-}
-
-.upper a {
-    text-decoration: none;
     color: #000;
-    font-size: 1.1rem;
-    display: inline-block;
-    max-width: 600px;
     text-align: center;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
+/* Kontejner pro boxy */
+.boxContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Jednotlivé boxy */
+.prvniBox,
+.druhyBox {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+    flex: 1 1 420px; /* pěkně responsivní */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover efekt */
+.prvniBox:hover,
+.druhyBox:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Nadpisy a texty v boxech */
+.prvniBox h2,
+.druhyBox h2 {
+    font-size: 1.8rem;
+    color: #d33e32ff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.prvniBox p,
+.druhyBox p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+}
+
+/* Seznamy v boxech */
+.prvniBox ul,
+.druhyBox ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.prvniBox ul li,
+.druhyBox ul li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 10px;
+    color: #444;
+    font-size: 1rem;
+}
+
+.prvniBox ul li::before,
+.druhyBox ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #d33e32ff;
+    font-weight: bold;
+}
+
+/* CTA */
+.upper .cta {
+    text-align: center;
+    margin-top: 30px;
+    transition: all 0.2s ease-in-out;
+}
+
+.upper .cta a {
+    display: inline-block;
+    background-color: #d33e32ff;
+    color: #fff;
+    padding: 12px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid #d33e32ff;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.upper .cta a:hover {
+    background-color: #fff;
+    color: #d33e32ff;
+    transform: translateY(-2px);
+}
+
 
 .vice {
     padding: 20px 40px;
@@ -195,13 +312,7 @@ header .container {
     transform: translateY(-2px);
 }
 
-/* Sekce onas */
-.onas {
-    background-color: #EDEDED;
-    padding-top: 60px;
-}
-
-/* Sekce s formularem */
+/* Sekce s formulářem */
 .contact {
     background-color: #EDEDED;
     margin-top: 40px;
@@ -224,29 +335,48 @@ header .container {
 .form-wrapper {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch; /* důležité: stejné výšky */
     flex-wrap: wrap;
     gap: 40px;
 }
 
+/* FORM KONTEJNER */
 .contact .form {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
+/* FORMULÁŘ */
 .contact-form {
     background: #fff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     max-width: 560px;
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    min-height: 457px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 30px;
+    justify-content: center;
 }
 
+.contact-form h4 {
+    color: #d33e32;
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.contact-form:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.12);
+}
+
+/* FORM FIELDY */
 .contact-form .form-group {
     display: flex;
     flex-direction: column;
@@ -256,37 +386,42 @@ header .container {
 .contact-form label {
     font-weight: 600;
     color: #333;
+    gap: 20px;
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
-.contact-form input[type="tel"] {
+.contact-form input[type="tel"],
+.contact-form textarea {
     padding: 12px 15px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    resize: none;
 }
 
-.contact-form input:focus {
-    border-color: #d33e32ff;
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #d33e32;
+    box-shadow: 0 0 0 3px rgba(211, 62, 50, 0.1);
     outline: none;
 }
 
-/* Checkbox */
+/* CHECKBOX */
 .checkbox-group {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
+    font-size: 0.95rem;
+    color: #444;
+    flex-wrap: wrap;
 }
 
 .checkbox-group label {
     display: flex;
     align-items: center;
     cursor: pointer;
-    position: relative;
 }
 
 .checkbox-group input {
@@ -296,12 +431,12 @@ header .container {
 .custom-checkbox {
     width: 20px;
     height: 20px;
-    border: 2px solid #d33e32ff;
+    border: 2px solid #d33e32;
     border-radius: 4px;
     display: inline-block;
-    margin-right: 10px;
     position: relative;
     transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
 .custom-checkbox::after {
@@ -319,34 +454,32 @@ header .container {
 }
 
 .checkbox-group input:checked + .custom-checkbox {
-    background-color: #d33e32ff; 
-    border-color: #d33e32ff;
+    background-color: #d33e32; 
+    border-color: #d33e32;
 }
 
 .checkbox-group input:checked + .custom-checkbox::after {
     opacity: 1;
 }
 
-/* Submit button */
+/* SUBMIT BUTTON */
 .submit-btn {
     padding: 15px;
-    background-color: #d33e32ff;
+    background-color: #d33e32;
     color: #fff;
     font-size: 1.1rem;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #d33e32;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     letter-spacing: 1px;
     text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    border: 2px solid #d33e32ff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .submit-btn:hover {
     background-color: #fff;
-    color: #d33e32ff;
-    border: 2px solid #d33e32ff;
+    color: #d33e32;
     transform: translateY(-2px);
 }
 
@@ -356,15 +489,15 @@ header .container {
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    flex-shrink: 0;
     display: flex;
-    max-width: 560px;
-    min-height: 457px;
     flex-direction: column;
+    max-width: 650px; /* trošku víc prostoru */
+    min-height: 457px;
+    overflow: hidden;
 }
 
 .contact .info h3 {
-    color: #d33e32ff;
+    color: #d33e32;
     margin-bottom: 25px;
     font-size: 2.2rem;
     text-align: center;
@@ -373,32 +506,45 @@ header .container {
 /* grid layout pro kontakty */
 .contact .contacts {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    width: 100%;
 }
 
 /* contact card */
 .contact-card {
-    background: #fff;
-    border: 2px solid #eee;
-    border-radius: 12px;
-    min-width: 220px;
-    padding: 25px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fafafa;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    word-wrap: break-word;       /* zalomení dlouhých slov */
+    overflow-wrap: anywhere;     /* emaily se zalomí */
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.12);
 }
 
 .contact-card h4 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: #222;
     text-align: center;
     font-weight: 600;
+}
+
+.contact-card a {
+    color: #ed1607;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-card a:hover {
+    color: #bf4840;
+    text-decoration: underline;
 }
 
 .contact-card ul {
@@ -408,13 +554,14 @@ header .container {
 }
 
 .contact-card ul li {
-    font-size: 1.1rem;
-    margin-bottom: 18px;
+    font-size: 1rem;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    line-height: 1.6;
+    gap: 10px;
+    line-height: 1.5;
     color: #444;
+    word-break: break-word;
 }
 
 /* ikonky v kruhu */
@@ -505,6 +652,10 @@ footer {
 @media (max-width: 768px) {
     header  {
         flex-direction: grid;
+    }
+
+    .contact-form {
+        width: 100%;
     }
 
     .contact .form {

@@ -37,14 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style-admin.css" class="css">
 </head>
 <body>
-    <h2>Přihlášení do administrace</h2>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="POST" action="">
-        <label>Uživatel:</label><br>
-        <input type="text" name="username" required><br><br>
-        <label>Heslo:</label><br>
-        <input type="password" name="password" required><br><br>
-        <button type="submit">Přihlásit se</button>
-    </form>
+    <div class="loginContainer">
+        <h2>Přihlášení do administrace</h2>
+        <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+        <form method="POST" action="">
+            <label>Uživatel:</label><br>
+            <input type="text" name="username" placeholder="uživatel" required><br><br>
+            <label>Heslo:</label><br>
+            <input type="password" name="password" placeholder="heslo" required><br><br>
+            <button type="submit">Přihlásit se</button>
+        </form>
+    </div>
 </body>
 </html>
