@@ -4,7 +4,6 @@
 session_start();
 require_once 'config.php';
 
-// Pokud už je přihlášený, přesměruj na dashboard
 if (isset($_SESSION['username'])) {
     header("Location: dashboard.php");
     exit();
@@ -15,9 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    // Jediný povolený uživatel
-    $admin_username = 'admin';
-    $admin_password = 'admin123'; // Můžeš změnit, nebo později uložit hash do DB
+    $admin_username = 'Fasi';
+    $admin_password = 'Kouše';
 
     if ($username === $admin_username && $password === $admin_password) {
         $_SESSION['username'] = $username;
@@ -34,16 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Přihlášení</title>
-    <link rel="stylesheet" href="style-admin.css" class="css">
+    <link rel="stylesheet" href="loginStyle.css" class="css">
 </head>
 <body>
     <div class="loginContainer">
         <h2>Přihlášení do administrace</h2>
         <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
         <form method="POST" action="">
-            <label>Uživatel:</label><br>
             <input type="text" name="username" placeholder="uživatel" required><br><br>
-            <label>Heslo:</label><br>
             <input type="password" name="password" placeholder="heslo" required><br><br>
             <button type="submit">Přihlásit se</button>
         </form>
