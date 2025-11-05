@@ -26,7 +26,7 @@ $today = date("d.m.Y");
     <nav class="navbarDashboard">
         <ul>
             <li><h1>Vítej, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1></li>
-            <li><p class="date">📅 <?php echo $today; ?></p></li>
+            <li><p class="date"><?php echo $today; ?></p></li>
             <li><a href="logout.php" class="logout-btn">Odhlásit se</a></li>
         </ul>
     </nav>
@@ -35,12 +35,12 @@ $today = date("d.m.Y");
 
         <!-- Formulář pro přidání nové fotky -->
         <section class="dashboard-box">
-            <h2>📸 Přidat novou fotografii</h2>
+            <h2>Přidat novou fotografii</h2>
 
             <?php if (isset($_GET['success'])): ?>
-                <p style="color:green;">✅ Fotografie byla úspěšně nahrána!</p>
+                <p style="color:green;">Hotovo!</p>
             <?php elseif (isset($_GET['error'])): ?>
-                <p style="color:red;">❌ <?php echo htmlspecialchars($_GET['error']); ?></p>
+                <p style="color:red;"><?php echo htmlspecialchars($_GET['error']); ?></p>
             <?php endif; ?>
 
             <form action="photo_add.php" method="post" enctype="multipart/form-data" class="uploadForm">
@@ -50,13 +50,13 @@ $today = date("d.m.Y");
                 <label for="photoFile">Vyber obrázek:</label>
                 <input type="file" name="photoFile" id="photoFile" accept="image/*" required>
 
-                <button type="submit">📤 Nahrát fotografii</button>
+                <button type="submit">Nahrát fotografii</button>
             </form>
         </section>
 
         <!-- Galerie -->
         <section class="dashboard-box gallery-box">
-            <h2>🖼️ Galerie</h2>
+            <h2>Galerie</h2>
 
             <div class="galleryGrid">
                 <?php if ($result && $result->num_rows > 0): ?>
@@ -66,13 +66,13 @@ $today = date("d.m.Y");
                             <p><?php echo htmlspecialchars($row['nazev']); ?></p>
                             <span class="dateSmall"><?php echo date("d.m.Y H:i", strtotime($row['datum'])); ?></span>
                             <div class="galleryActions">
-                                <a href="photo_edit.php?id=<?php echo $row['id']; ?>" class="editBtn">✏️ Upravit</a>
-                                <a href="photo_delete.php?id=<?php echo $row['id']; ?>" class="deleteBtn" onclick="return confirm('Opravdu smazat tuto fotografii?')">🗑️ Smazat</a>
+                                <a href="photo_edit.php?id=<?php echo $row['id']; ?>" class="editBtn">Upravit</a>
+                                <a href="photo_delete.php?id=<?php echo $row['id']; ?>" class="deleteBtn" onclick="return confirm('Opravdu smazat tuto fotografii?')">Smazat</a>
                             </div>
                         </div>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <p>⚠️ Zatím nejsou nahrány žádné fotografie.</p>
+                    <p>Zatím nejsou nahrány žádné fotografie.</p>
                 <?php endif; ?>
             </div>
         </section>

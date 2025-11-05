@@ -5,7 +5,7 @@ window.addEventListener("scroll", () => {
   let current = "";
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 143;
+    const sectionTop = section.offsetTop - 123;
     const sectionHeight = section.clientHeight;
 
     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {

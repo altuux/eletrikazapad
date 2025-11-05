@@ -1,6 +1,6 @@
 <header>
     <div class="container">
-        <h1><img class="logo" href="#" src="assets/img/logo.png" alt=""></h1>
+        <h1><a href="index.php#hero"><img class="logo" href="#" src="assets/img/logo.png" alt=""></a></h1>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.php#hero">Domů</a></li>

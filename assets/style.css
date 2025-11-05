@@ -37,13 +37,14 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 40px;
 }
 
 .logo {
     color: white;
     text-decoration: none;
     width: 110px;
-    height: 90px;
+    height: auto;
 }
 
 /* Navbar */
@@ -85,7 +86,6 @@ header .container {
     transition: all 0.3s ease;
 }
 
-/* Burger animace při otevření */
 .burger.toggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -595,7 +595,7 @@ header .container {
 /* Sekce obsah */
 section {
     min-height: 80vh;
-    scroll-margin-top: 143px;
+    scroll-margin-top: 123px;
 }
 
 section h3 {

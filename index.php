@@ -10,6 +10,7 @@
     <meta name="keywords" content="PH-Elektro, elektrikář Plzeň, fotovoltaika Plzeň, elektroinstalace Karlovy Vary, solární panely západní Čechy, montáž FVE Plzeň, Elektrika Západ">
     <title>PH-Elektro | Domovská stránka – Fotovoltaika a elektroinstalace Plzeň & Karlovarský kraj</title>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/modal.css">
 </head>
 <body>
     <?php include "includes/header.php" ?>
@@ -68,7 +69,8 @@
                 <h1>Kontaktujte nás</h1>
 
                 <div class="form-wrapper">
-                    <form action="" method="post" class="contact-form">
+                    <form id="mainForm" class="contact-form">
+                        <input type="hidden" name="access_key" value="...">
                         <h4>Kontaktní formulář</h4>
                         <div class="form-group">
                             <label for="name">Jméno a příjmení *</label>
@@ -79,7 +81,7 @@
                             <input type="email" id="email" name="email" placeholder="Váš e-mail" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Telefon</label>
+                            <label for="phone">Telefon *</label>
                             <input type="tel" id="phone" name="phone" placeholder="Váš telefon">
                         </div>
                         <div class="checkbox-group">
@@ -89,8 +91,28 @@
                                 Souhlasím se zpracováním osobních údajů
                             </label>
                         </div>
-                        <button type="submit" class="submit-btn">Vybrat Službu</button>
+                        <button type="button" class="submit-btn" id="openModal">Vybrat Službu</button>
                     </form>
+
+                    <div id="serviceModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h4>Další informace</h4>
+                            <div class="form-group">
+                                <label for="service">Vyberte službu *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">--Vyberte--</option>
+                                    <option value="sluzba1">Služba 1</option>
+                                    <option value="sluzba2">Služba 2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="note">Poznámka</label>
+                                <textarea id="note" name="note" placeholder="Vaše poznámka"></textarea>
+                            </div>
+                            <button type="button" id="submitAll">Odeslat vše</button>
+                        </div>
+                    </div>
 
                     <div class="info">
                         <h3>Naše kontakty</h3>
@@ -122,4 +144,5 @@
 </body>
 <script src="assets/burger.js"></script>
 <script src="assets/spy.js"></script>
+<script src="assets/modal.js"></script>
 </html>

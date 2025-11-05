@@ -1,0 +1,133 @@
+/* === KONTEJNER === */
+.gallerySection {
+    background-color: #fafafa;
+    padding: 200px 0;
+}
+
+.gallerySection .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallerySection h1 {
+    font-size: 2rem;
+    color: #d33e32;
+    text-transform: uppercase;
+    border-radius: 12px;
+    opacity: 0.98;
+}
+
+.gallerySection .subtitle {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+/* === GALERIE === */
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.galleryItem {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galleryItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+.galleryItem img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    display: block;
+}
+
+.galleryItem p {
+    padding: 15px 10px;
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* === LIGHTBOX === */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.closeBtn:hover {
+    color: #d33e32;
+}
+
+.navBtn {
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.navBtn:hover {
+    color: #d33e32;
+}
+
+.prevBtn { left: 40px; }
+.nextBtn { right: 40px; }
+
+@media (max-width: 768px) {
+    .navBtn { font-size: 2.2rem; }
+}
+
+/* === RESPONSIVITA === */
+@media (max-width: 768px) {
+    .galleryGrid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .galleryItem img {
+        height: 160px;
+    }
+}

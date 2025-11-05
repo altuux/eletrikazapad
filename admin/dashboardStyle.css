@@ -1,7 +1,7 @@
 /* === ZÁKLAD === */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f7f8fa;
+    background-color: #575757;
     color: #333;
     margin: 0;
     padding: 0;
@@ -40,12 +40,11 @@ body {
     font-weight: 600;
     padding: 8px 16px;
     border-radius: 6px;
-    background: rgba(255,255,255,0.15);
     transition: background 0.3s ease;
 }
 
 .navbarDashboard a.logout-btn:hover {
-    background: rgba(255,255,255,0.25);
+    text-decoration: underline;
 }
 
 /* === DASHBOARD KONTEJNER === */
