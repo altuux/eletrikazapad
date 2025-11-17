@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PH-Elektro - fotovoltaika, elektroinstalace a servis v Plzni a Karlovarském kraji. Kompletní řešení od návrhu po realizaci.">
-    <meta name="keywords" content="PH-Elektro, elektrikář Plzeň, fotovoltaika Plzeň, elektroinstalace Karlovy Vary, solární panely západní Čechy, montáž FVE Plzeň, Elektrika Západ">
-    <title>PH-Elektro | Domovská stránka – Fotovoltaika a elektroinstalace Plzeň & Karlovarský kraj</title>
+    <meta name="description" content="Elektrika-Západ - fotovoltaika, elektroinstalace a servis v Plzni a Karlovarském kraji. Kompletní řešení od návrhu po realizaci.">
+    <meta name="keywords" content="Elektrika-Západ, elektrikář Plzeň, fotovoltaika Plzeň, elektroinstalace Karlovy Vary, solární panely západní Čechy, montáž FVE Plzeň, Elektrika Západ">
+    <title>Elektrika-Západ | Domovská stránka – Fotovoltaika a elektroinstalace Plzeň & Karlovarský kraj</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/modal.css">
 </head>
@@ -32,6 +32,17 @@
             <p>Jsme profesionální elektroinstalační firma PH-Elektro, která zajišťuje kompletní služby v oblasti elektroinstalace a fotovoltaiky (FVE) pro rodinné domy. Zajistíme Vám nejen montáž, ale také vyřízení dotací, aby byla vaše investice co nejvýhodnější.</p>
             <div class="boxContainer">
 
+            <div class="prvniBox">
+                <h2>Kompletní elektroinstalace od A do Z</h2>
+                <p>Provádíme elektroinstalace v rodinných domech, bytech i dalších objektech. Zajistíme vše potřebné – od návrhu přes montáž až po revizi.</p>
+                <ul>
+                <li>Nové elektroinstalace i rekonstrukce</li>
+                <li>Rozvody v domech a bytech</li>
+                <li>Instalace rozvaděčů, jističů a chráničů</li>
+                <li>Montáž zásuvek, vypínačů a osvětlení</li>
+                <li>Revize elektroinstalací</li>
+                </ul>
+            </div>
             <div class="prvniBox">
                 <h2>Kompletní elektroinstalace od A do Z</h2>
                 <p>Provádíme elektroinstalace v rodinných domech, bytech i dalších objektech. Zajistíme vše potřebné – od návrhu přes montáž až po revizi.</p>
@@ -145,4 +156,5 @@
 <script src="assets/burger.js"></script>
 <script src="assets/spy.js"></script>
 <script src="assets/modal.js"></script>
+<script src="assets/news.js"></script>
 </html>

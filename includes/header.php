@@ -1,6 +1,12 @@
-<header>
+<header class="news-bar" id="newsBar">
     <div class="container">
-        <h1><a href="index.php#hero"><img class="logo" href="#" src="assets/img/logo.png" alt=""></a></h1>
+        <p id="newsText">Your dynamic text here from the database</p>
+    </div>
+</header>
+
+<header class="main-header shifted">
+    <div class="container">
+        <h1><a href="index.php#hero"><img class="logo" src="assets/img/logo.png" alt=""></a></h1>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.php#hero">Domů</a></li>

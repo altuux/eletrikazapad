@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    $admin_username = 'Fasi';
-    $admin_password = 'Kouše';
+    $admin_username = 'admin';
+    $admin_password = 'admin';
 
     if ($username === $admin_username && $password === $admin_password) {
         $_SESSION['username'] = $username;

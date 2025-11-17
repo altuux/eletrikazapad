@@ -1,6 +1,20 @@
 /* Import fontu Lato */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
+/*effects*/
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* safari */
+.news-bar,
+header.main-header {
+    -webkit-backface-visibility: hidden; /* triggers GPU rendering */
+    transform: translateZ(0); /* forces Safari to snap to pixel grid */
+}
+
+
 /* Reset */
 * {
     margin: 0;
@@ -13,25 +27,60 @@
 body {
     font-family: 'Lato', Arial, sans-serif;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
-    padding: 20px;
 }
 
-/* Header */
+/* News bar */
+.news-bar {
+    background: #d33e32ff;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* News hidden */
+.news-bar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Main header */
+header.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+header.main-header.shifted {
+    top: 51px;
+}
+
 header {
     background: #1a1a1aff;
     color: white;
     padding: 5px 0;
-    position: fixed;
-    top: 0;
-    z-index: 100;
     width: 100%;
+    position: fixed;
+    z-index: 100;
 }
+
 
 header .container {
     display: flex;
@@ -100,7 +149,7 @@ header .container {
 
 /* Hero sekce */
 .hero {
-    background: url("") no-repeat center/cover;
+    background: url("../assets/img/main.jpg") no-repeat center/cover;
     width: 100%;
     height: 100vh;
     display: flex; 
@@ -121,16 +170,30 @@ header .container {
     text-align: left;
 }
 
+.hero .buttons {
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
 .hornitext {
-    color: #d33e32ff;
-    font-size: 2.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    letter-spacing: 1px;
-    font-weight: 1000;
-    background-color: #333;
-    border-radius: 12px;
-    opacity: 0.98;
     padding: 20px;
+    margin-bottom: 80px;
+    max-width: 800px;
+}
+
+.hornitext h1 {
+    color: #fff;
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    line-height: 1.15;
+    margin: 0;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.hornitext h1 {
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
 }
 
 /* Sekce o nás */
@@ -185,7 +248,7 @@ header .container {
     border-radius: 16px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
     transition: all 0.35s ease;
-    flex: 1 1 420px; /* pěkně responsivní */
+    flex: 1 1 420px; 
     max-width: 500px;
     display: flex;
     flex-direction: column;
@@ -616,6 +679,46 @@ footer {
 }
 
 /* Responsivita */
+@media (min-width: 1024px) {
+    .hero {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left: 60px;
+        padding-top: 100px;
+    }
+
+    .hornitext {
+        margin-bottom: 60px;
+    }
+
+    .hornitext h1 {
+        text-align: center;
+        margin-top: 100px;
+        font-size: 3.2rem;
+        max-width: 450px;
+
+    }
+}
+
+@media (max-width: 1023px) {
+    .hero {
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .hornitext {
+        text-align: center;
+        margin-bottom: 100px;
+    }
+
+    .hornitext h1 {
+        font-size: 2.8rem;
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 992px) {
     .hornitext {
         font-size: 2rem;
