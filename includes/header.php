@@ -1,6 +1,6 @@
 <header class="news-bar" id="newsBar">
     <div class="container">
-        <p id="newsText">Your dynamic text here from the database</p>
+        <p class="newsText" id="newsText">Spustili jsme nové webové stránky! Zde přikládáme další info, Lorem Ipsum Atd. Slovo zkouška zkouška zkouška zkouška zkouška zkouška zkouška zkouška zkouška zkouška zkouška</p>
     </div>
 </header>
 
