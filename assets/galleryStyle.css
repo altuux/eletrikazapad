@@ -13,10 +13,11 @@
 
 .gallerySection h1 {
     font-size: 2rem;
-    color: #d33e32;
+    color: #000000;
     text-transform: uppercase;
     border-radius: 12px;
     opacity: 0.98;
+    margin-top: 50px;
 }
 
 .gallerySection .subtitle {
@@ -28,35 +29,33 @@
 /* === GALERIE === */
 .galleryGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 25px;
 }
 
 .galleryItem {
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.galleryItem:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-}
+
 
 .galleryItem img {
     width: 100%;
-    height: 90%;
+    height: 80%;
     object-fit: cover;
     display: block;
+    cursor: pointer;
 }
 
 .galleryItem p {
     padding: 15px 10px;
     font-weight: 600;
     color: #333;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 /* === LIGHTBOX === */

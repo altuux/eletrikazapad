@@ -10,3 +10,17 @@ window.addEventListener("scroll", () => {
         mainHeader.classList.add("shifted");
     }
 });
+
+const updateHeaderPosition = () => {
+    const height = newsBar.offsetHeight;
+    
+    document.documentElement.style.setProperty('--news-bar-height', `${height}px`);
+};
+
+const resizeObserver = new ResizeObserver(() => {
+    updateHeaderPosition();
+});
+
+resizeObserver.observe(newsBar);
+
+updateHeaderPosition();

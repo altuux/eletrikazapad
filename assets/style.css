@@ -66,7 +66,8 @@ header.main-header {
 }
 
 header.main-header.shifted {
-    top: 51px;
+    top: var(--news-bar-height, 51px); 
+    transition: top 0.3s ease; 
 }
 
 header {
@@ -156,6 +157,88 @@ header .container {
     color: white;
 }
 
+.hero-content .buttons {
+    position: static;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    opacity: 1;
+}
+
+.hero-split {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    padding-top: var(--news-height);
+}
+
+.hero-content {
+    flex: 1;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    z-index: 2;
+}
+
+.hero-text-wrapper {
+    max-width: 600px;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-text-wrapper h1 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    color: #1a1a1a;
+    text-shadow: none; /* Na bílém pozadí stín nechceme */
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-top: 170px;
+}
+
+.hero-perex {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    background-image:
+    linear-gradient(145deg, rgba(0, 0, 0, 0.115) 0%, rgba(0, 0, 0, 0.335) 100%),
+    url("../assets/img/main.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-left: -40px;
+    animation: subtleZoom 20s ease-in-out infinite;
+}
+
+.hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(1px);
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+@keyframes subtleZoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
 .hero .buttons {
     position: absolute;
     bottom: 50px;
@@ -193,328 +276,344 @@ header .container {
     opacity: 0;
 }
 
-/* Sekce o nás */
-.onas {
-    background-color: #EDEDED;
-    padding: 80px 20px;
+.sluzby {
+    display: inline-block;
+    padding: 18px 36px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #1a1a1a; 
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.onas p {
-    max-width: 700px;
+.sluzby:hover {
+    background-color: #2c2c2c;
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.sluzby:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.vice {
+    display: inline-block;
+    padding: 18px 36px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
     text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    background-color: #d33e32;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.2); 
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(211, 62, 50, 0.4); 
+}
+
+.vice:hover {
+    background-color: #ffffff;
+    color: #d33e32;
+    border-color: #d33e32;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.vice:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*O nás sekce*/
+.onas {
+    background-color: #f4f6f8;
+    padding: 100px 20px;
     color: #333;
-    font-weight: 400;
-    padding: 10px 0;
-    position: relative;
 }
 
 .upper {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    align-items: center;
+    gap: 60px;
 }
 
-/* Nadpis sekce */
+/*Hlavička sekce*/
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .upper h1 {
     font-size: 3rem;
+    font-weight: 800; 
     text-transform: uppercase;
-    color: #000;
-    text-align: center;
-    margin-bottom: 10px;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
-/* Kontejner pro boxy */
+.upper p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #555;
+}
+
 .boxContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
     gap: 30px;
     width: 100%;
 }
 
-/* Jednotlivé boxy */
-.prvniBox,
-.druhyBox {
-    background-color: #fff;
-    padding: 30px 25px;
+.Box {
+    background-color: #ffffff;
+    padding: 40px 30px;
     border-radius: 16px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-    transition: all 0.35s ease;
-    flex: 1 1 420px; 
-    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Hover efekt */
-.prvniBox:hover,
-.druhyBox:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Nadpisy a texty v boxech */
-.prvniBox h2,
-.druhyBox h2 {
-    font-size: 1.8rem;
-    color: #d33e32ff;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.prvniBox p,
-.druhyBox p {
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: #333;
-    text-align: center;
-}
-
-/* Seznamy v boxech */
-.prvniBox ul,
-.druhyBox ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 15px;
-}
-
-.prvniBox ul li,
-.druhyBox ul li {
     position: relative;
-    padding-left: 28px;
-    margin-bottom: 10px;
-    color: #444;
-    font-size: 1rem;
+    overflow: hidden;
 }
 
-.prvniBox ul li::before,
-.druhyBox ul li::before {
+/* Ikonka nad nadpisem */
+.icon-header {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    /* Žádný stín, jen čistá ikonka */
+}
+
+.Box h2 {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.Box p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.Box ul {
+    list-style: none;
+    padding: 0;
+    margin-top: auto;
+}
+
+.Box ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.Box ul li::before {
     content: "✔";
     position: absolute;
     left: 0;
     top: 0;
-    color: #d33e32ff;
-    font-weight: bold;
-}
-
-/* CTA */
-.upper .cta {
-    text-align: center;
-    margin-top: 30px;
-    transition: all 0.2s ease-in-out;
-}
-
-.upper .cta a {
-    display: inline-block;
-    background-color: #d33e32ff;
-    color: #fff;
-    padding: 12px 35px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
+    color: #d33e32;
+    font-weight: 900;
     font-size: 1.1rem;
-    border: 2px solid #d33e32ff;
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
 }
 
-.upper .cta a:hover {
-    background-color: #fff;
-    color: #d33e32ff;
-    transform: translateY(-2px);
+.Box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); 
+    border: 3px solid #d33e32; 
 }
 
+.Box:hover h2 {
+    color: #d33e32;
+}
 
-.vice {
-    padding: 20px 40px;
-    background-color: #d33e32ff;
-    text-decoration: none;
-    border: #d33e32ff 4px solid;
-    color: white;
-    text-transform: uppercase;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    letter-spacing: 1px;
+.upper .cta {
+    margin-top: 50px;
     text-align: center;
 }
 
-.vice:hover{
-    background-color: #fff;
-    color: #d33e32ff;
-    border: #d33e32ff 4px solid;
-    transform: translateY(-2px);
-}
-
-.sluzby {
-    padding: 20px 40px;
-    background-color: #fff;
-    border: #d33e32ff 4px solid;
-    text-decoration: none;
-    color: #d33e32ff;
-    text-transform: uppercase;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    letter-spacing: 1px;
-}
-
-.sluzby:hover{
-    background-color: #d33e32ff;
-    color: #fff;
-    border: #d33e32ff 4px solid;
-    transform: translateY(-2px);
-}
-
-/* Sekce s formulářem */
 .contact {
-    background-color: #EDEDED;
-    margin-top: 40px;
-    padding-bottom: 60px;
+    background-color: #f9f9f9;
+    padding: 100px 20px;
+    color: #333;
 }
 
 .contact .container {
-    padding-top: 100px;
-    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Hlavní nadpis */
 .contact h1 {
     font-size: 3rem;
+    font-weight: 800;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 40px;
+    color: #1a1a1a;
+    margin-bottom: 60px;
+    letter-spacing: 1px;
 }
 
-/* wrapper pro form + info */
 .form-wrapper {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* důležité: stejné výšky */
-    flex-wrap: wrap;
+    align-items: flex-start; 
     gap: 40px;
+    flex-wrap: wrap;
 }
 
-/* FORM KONTEJNER */
-.contact .form {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-/* FORMULÁŘ */
-.contact-form {
-    background: #fff;
-    padding: 30px;
+.contact-form, 
+.contact .info {
+    background: #ffffff;
+    padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    max-width: 560px;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    min-height: 457px;
-    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    
+    flex: 1;
+    min-width: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    gap: 30px;
-    justify-content: center;
 }
 
-.contact-form h4 {
-    color: #d33e32;
-    margin-bottom: 25px;
-    font-size: 2.2rem;
+.contact-form:hover, 
+.contact .info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h4, 
+.contact .info h3 {
+    color: #1a1a1a; 
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 700;
     text-align: center;
+    position: relative;
 }
 
-.contact-form:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 14px rgba(0,0,0,0.12);
+.contact-form h4::after,
+.contact .info h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #d33e32;
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
-/* FORM FIELDY */
-.contact-form .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.form-group {
+    margin-bottom: 20px;
 }
 
 .contact-form label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: 600;
-    color: #333;
-    gap: 20px;
+    color: #555;
+    font-size: 0.95rem;
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form input[type="tel"],
-.contact-form textarea {
-    padding: 12px 15px;
-    border: 2px solid #ddd;
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #f9f9f9;
+    border: 2px solid #eaeaea;
     border-radius: 10px;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    resize: none;
+    color: #333;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
+    background-color: #fff;
     border-color: #d33e32;
-    box-shadow: 0 0 0 3px rgba(211, 62, 50, 0.1);
+    box-shadow: 0 0 0 4px rgba(211, 62, 50, 0.1);
     outline: none;
 }
 
-/* CHECKBOX */
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
 .checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    color: #444;
-    flex-wrap: wrap;
+    margin: 20px 0 30px 0;
+    margin-left: 5px;
 }
 
 .checkbox-group label {
     display: flex;
     align-items: center;
+    gap: 12px;
     cursor: pointer;
+    font-weight: 400;
+    color: #666;
 }
 
 .checkbox-group input {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .custom-checkbox {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #d33e32;
-    border-radius: 4px;
-    display: inline-block;
-    position: relative;
-    transition: all 0.2s ease;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
     flex-shrink: 0;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .custom-checkbox::after {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 0px;
-    width: 6px;
-    height: 12px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-size: 16px;
+    color: #fff;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
 
 .checkbox-group input:checked + .custom-checkbox {
-    background-color: #d33e32; 
+    background-color: #d33e32;
     border-color: #d33e32;
 }
 
@@ -522,135 +621,140 @@ header .container {
     opacity: 1;
 }
 
-/* SUBMIT BUTTON */
+
 .submit-btn {
-    padding: 15px;
+    width: 100%;
+    padding: 18px;
     background-color: #d33e32;
-    color: #fff;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
     font-size: 1.1rem;
-    border: 2px solid #d33e32;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 1px;
+    font-weight: 600;
     text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(211, 62, 50, 0.4);
 }
 
 .submit-btn:hover {
-    background-color: #fff;
+    background-color: #ffffff;
     color: #d33e32;
-    transform: translateY(-2px);
+    border: 2px solid #d33e32;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.contact .info {
-    flex: 0.8;
-    background: #fff;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    max-width: 650px; /* trošku víc prostoru */
-    min-height: 457px;
-    overflow: hidden;
-}
-
-.contact .info h3 {
-    color: #d33e32;
-    margin-bottom: 25px;
-    font-size: 2.2rem;
-    text-align: center;
-}
-
-/* grid layout pro kontakty */
 .contact .contacts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 20px;
-    width: 100%;
 }
 
-/* contact card */
+/* Kartička osoby */
 .contact-card {
-    background: #fafafa;
-    border: 1.5px solid #e5e5e5;
-    border-radius: 14px;
-    padding: 20px 24px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    word-wrap: break-word;       /* zalomení dlouhých slov */
-    overflow-wrap: anywhere;     /* emaily se zalomí */
+    background: #fcfcfc;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 14px rgba(0,0,0,0.12);
+    background: #fff;
+    border-color: #d33e32;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .contact-card h4 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
     color: #222;
-    text-align: center;
-    font-weight: 600;
+    text-align: left; 
+}
+
+.contact-card h4::after { display: none; }
+
+.contact-card ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 0.95rem;
 }
 
 .contact-card a {
-    color: #ed1607;
+    color: #333;
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
 .contact-card a:hover {
-    color: #bf4840;
+    color: #d33e32;
     text-decoration: underline;
 }
 
-.contact-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.contact-card ul li {
-    font-size: 1rem;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    line-height: 1.5;
-    color: #444;
-    word-break: break-word;
-}
-
-/* ikonky v kruhu */
 .icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    color: #fff;
-    font-size: 16px;
+    margin-right: 15px;
     flex-shrink: 0;
+    background-color: rgba(211, 62, 50, 0.1);
+    color: #d33e32;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-/* konkrétní barvy ikon */
-.icon.phone::before {
-    content: "📞";
-}
-.icon.mail::before {
-    content: "✉️";
-}
-.icon.map::before {
-    content: "📍";
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.6); 
+    backdrop-filter: blur(5px);
 }
 
-.icon.phone { background-color: #277c3ba0; }
-.icon.mail { background-color: #007bffa5; }
-.icon.map  { background-color: #ff5622a9; }
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; 
+    padding: 40px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    animation: slideDown 0.4s ease;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #d33e32;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 /* Sekce obsah */
 section {
@@ -690,7 +794,7 @@ footer {
 
     .hornitext h1 {
         text-align: center;
-        margin-top: 100px;
+        margin-top: 160px;
         font-size: 3.2rem;
         max-width: 450px;
 
@@ -732,6 +836,57 @@ footer {
         max-width: 600px;
         width: 100%;
     }
+
+        .hero-split {
+        flex-direction: column;
+        min-height: auto;
+        padding-top: calc(var(--news-bar-height) + 70px); 
+    }
+
+    .hero-content {
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    .hero-text-wrapper {
+        margin-top: 40px;
+        animation: none;
+    }
+
+    .hero-text-wrapper h1 {
+        font-size: 2.2rem;
+        margin-top: 40px;
+    }
+
+    .hero-perex {
+        font-size: 1.1rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        min-height: 350px;
+        margin-left: 0;
+        background-attachment: scroll !important;
+        animation: none;
+    }
+
+    .hero-content .buttons {
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .hero .buttons {
+        position: static;
+        align-items: center;
+        text-align: center;
+        bottom: unset;
+        left: unset;
+        margin-top: 30px;
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @media (max-width: 600px) {
@@ -742,10 +897,36 @@ footer {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
     .hornitext {
         font-size: 1.2rem;
         padding: 10px;
+    }
+
+    .contact-card {
+        padding: 10px;
+    }
+    
+    .hero-text-wrapper h1 {
+        font-size: 1.6rem;
+        line-height: 1.25;
+    }
+
+    .hero-perex {
+        font-size: 0.95rem;
+    }
+
+    .hero-image {
+        min-height: 260px;
+    }
+
+    .hero-content {
+        padding: 25px 15px;
+    }
+
+    .sluzby, .vice {
+        padding: 14px 0;
+        font-size: 12px;
     }
 }
 
@@ -754,18 +935,31 @@ footer {
         flex-direction: grid;
     }
 
-    .contact-form {
-        width: 100%;
+    .onas {
+        padding: 60px 20px;
     }
 
-    .contact .form {
-        flex-direction: column;
-        padding: 0 20px;
+    .upper h1 {
+        font-size: 2.2rem;
     }
 
+    .boxContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        padding: 60px 20px;
+    }
     .contact h1 {
         font-size: 2.2rem;
     }
+    .form-wrapper {
+        flex-direction: column;
+    }
+    .contact-form, .contact .info {
+        width: 100%;
+        min-width: auto;
+    } 
 
     .submit-btn {
         font-size: 1rem;
@@ -794,12 +988,44 @@ footer {
         display: flex;
     }
 
-    .hero h2 {
-        font-size: 2rem;
+    header .container {
+        padding: 10px 20px;
     }
 
-    .hero p {
+    .nav-links {
+        gap: 25px;
+    }
+
+    .hero-text-wrapper h1 {
+        font-size: 1.9rem;
+        margin-top: 10px;
+    }
+
+    .hero-perex {
         font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-content {
+        padding: 30px 20px;
+    }
+
+    .hero-image {
+        background-image:
+            url("../assets/img/main.jpg");
+    }
+
+    .hero-image::after {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+
+    .sluzby, .vice {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 13px;
+        letter-spacing: 1px;
     }
 
     .contact .contacts {
