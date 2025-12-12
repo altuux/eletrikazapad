@@ -1,3 +1,68 @@
+/* News bar */
+.news-bar {
+    background: #d33e32ff;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    height: auto;
+    transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+.newsText {
+    text-align: center;
+    justify-content: center;
+}
+
+/* News hidden */
+.news-bar.hidden {
+    transform: translateY(-100%);
+    opacity: 1;
+}
+
+/* Main header */
+header.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: top 0.5s ease;
+}
+
+header.main-header.shifted {
+    top: var(--news-bar-height, 51px); 
+    transition: top 0.7s ease; 
+}
+
+header {
+    background: #1a1a1aff;
+    color: white;
+    padding: 5px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    width: 110px;
+    height: auto;
+}
+
 /* === KONTEJNER === */
 .gallerySection {
     background-color: #fafafa;
@@ -41,7 +106,9 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
+.galleryItem:hover {
+    transform: translate(0px, -5px);
+}
 
 .galleryItem img {
     width: 100%;

@@ -62,12 +62,12 @@ header.main-header {
     top: 0;
     width: 100%;
     z-index: 100;
-    transition: top 0.7s ease;
+    transition: top 0.5s ease;
 }
 
 header.main-header.shifted {
     top: var(--news-bar-height, 51px); 
-    transition: top 0.3s ease; 
+    transition: top 0.7s ease; 
 }
 
 header {

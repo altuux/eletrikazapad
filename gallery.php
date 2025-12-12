@@ -1,9 +1,8 @@
 <?php
 require_once 'admin/config.php';
 
-// Načtení všech fotek
-$sql = "SELECT * FROM gallery ORDER BY datum DESC";
-$result = $conn->query($sql);
+$sql_gallery = "SELECT * FROM gallery ORDER BY datum DESC";
+$result_gallery = $conn->query($sql_gallery);
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -25,9 +24,9 @@ $result = $conn->query($sql);
             <p class="subtitle">Ukázky naší práce v oblasti fotovoltaiky a elektroinstalací</p>
 
             <div class="galleryGrid">
-                <?php if ($result->num_rows > 0): ?>
+                <?php if ($result_gallery && $result_gallery->num_rows > 0): ?>
                     <?php $index = 0; ?>
-                    <?php while ($row = $result->fetch_assoc()): ?>
+                    <?php while ($row = $result_gallery->fetch_assoc()): ?>
                         <div class="galleryItem">
                             <img src="uploads/<?php echo htmlspecialchars($row['obrazek']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nazev']); ?>"
@@ -43,7 +42,6 @@ $result = $conn->query($sql);
         </div>
     </main>
 
-    <!-- === LIGHTBOX === -->
     <div id="lightbox" class="lightbox">
         <span class="closeBtn">&times;</span>
         <img id="lightboxImg" src="" alt="">
@@ -53,5 +51,6 @@ $result = $conn->query($sql);
 
     <?php include "includes/footer.php" ?>
     <script src="assets/gallery.js"></script>
+    <script src="assets/news.js"></script>
 </body>
 </html>
